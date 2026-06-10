@@ -80,6 +80,12 @@ LIVE_PATCHES: dict[str, list[tuple[str, str]]] = {
             'with a <a href="../../services/accessory-dwelling-unit-adu-service/">feasibility study first</a> and contract transparency as policy',
         ),
     ],
+    "which-adu-type-is-best-for-your-massachusetts-home": [
+        (
+            "That walkthrough is the entire purpose of a feasibility assessment",
+            'That walkthrough is the entire purpose of a <a href="../../services/accessory-dwelling-unit-adu-service/">feasibility assessment</a>',
+        ),
+    ],
 }
 
 

@@ -64,6 +64,15 @@ ARTICLES: dict[str, dict[str, str]] = {
         "content_file": "adu-builder-content.html",
         "role": "satellite",
     },
+    "which-adu-type-is-best-for-your-massachusetts-home": {
+        "title": "Detached, Attached, or Garage Conversion: Which ADU Type Is Best for Your Massachusetts Home?",
+        "excerpt": (
+            "Every ADU type trades cost against privacy and rental income against disruption. "
+            "Compare detached, attached, garage, and basement conversions with Massachusetts costs and a decision matrix."
+        ),
+        "content_file": "adu-types-content.html",
+        "role": "satellite",
+    },
 }
 
 READ_ALSO_MARKER = '<div class="jrh-blog-read-also">'
@@ -114,6 +123,8 @@ def short_title(slug: str) -> str:
         return "Lot & Zoning Guide"
     if slug == "how-to-choose-an-adu-builder-in-massachusetts":
         return "ADU Builder Guide"
+    if slug == "which-adu-type-is-best-for-your-massachusetts-home":
+        return "ADU Types Guide"
     if slug == PILLAR_SLUG:
         return "What Is an ADU?"
     return title.split("|")[0].strip()[:60]
@@ -235,6 +246,25 @@ CONTEXTUAL_LINKS: dict[str, list[tuple[str, str]]] = {
             f'<p><strong>Topic Cluster Opportunity:</strong> '
             f'<a href="{href("how-to-choose-an-adu-builder-in-massachusetts")}">How to Choose an ADU Builder</a></p>',
         ),
+        (
+            "<p><strong>Topic Cluster Opportunity:</strong> Detached ADU vs Attached ADU</p>",
+            f'<p><strong>Topic Cluster Opportunity:</strong> '
+            f'<a href="{href("which-adu-type-is-best-for-your-massachusetts-home")}">Detached ADU vs Attached ADU</a></p>',
+        ),
+        (
+            "<p><strong>Topic Cluster Opportunity:</strong> Garage Conversion ADU</p>",
+            f'<p><strong>Topic Cluster Opportunity:</strong> '
+            f'<a href="{href("which-adu-type-is-best-for-your-massachusetts-home")}">Garage Conversion ADU</a></p>',
+        ),
+        (
+            "<p><strong>Topic Cluster Opportunity:</strong> Basement ADU</p>",
+            f'<p><strong>Topic Cluster Opportunity:</strong> '
+            f'<a href="{href("which-adu-type-is-best-for-your-massachusetts-home")}">Basement ADU</a></p>',
+        ),
+        (
+            "<h3>Detached ADU</h3>",
+            f'<h3><a href="{href("which-adu-type-is-best-for-your-massachusetts-home")}">Detached ADU</a></h3>',
+        ),
     ],
     "how-much-does-an-adu-cost": [
         (
@@ -255,7 +285,7 @@ CONTEXTUAL_LINKS: dict[str, list[tuple[str, str]]] = {
         (
             "<h2>Detached ADUs vs Garage Conversions</h2>\n\n<p>Detached ADUs offer",
             f"<h2>Detached ADUs vs Garage Conversions</h2>\n\n"
-            f'<p>Compare <a href="{href(PILLAR_SLUG)}">different types of ADUs</a> in our overview guide. '
+            f'<p>Compare <a href="{href("which-adu-type-is-best-for-your-massachusetts-home")}">detached, attached, and conversion ADU types</a> before you estimate budget. '
             f"Detached ADUs offer",
         ),
         (
@@ -391,7 +421,8 @@ CONTEXTUAL_LINKS: dict[str, list[tuple[str, str]]] = {
         (
             "<h2>From \"Can I?\" to \"How Should I?\": Your Next Step</h2>",
             f'<h2>From "Can I?" to "How Should I?": Your Next Step</h2>\n\n'
-            f'<p>After eligibility, review <a href="{href("how-much-does-an-adu-cost")}">ADU construction costs</a>, '
+            f'<p>After eligibility, compare <a href="{href("which-adu-type-is-best-for-your-massachusetts-home")}">ADU types</a>, '
+            f'<a href="{href("how-much-does-an-adu-cost")}">construction costs</a>, '
             f'<a href="{href("how-to-choose-an-adu-builder-in-massachusetts")}">how to choose an ADU builder</a>, and '
             f'<a href="{href("how-to-finance-an-adu-in-massachusetts")}">financing options</a> for your project.</p>',
         ),
@@ -432,6 +463,47 @@ CONTEXTUAL_LINKS: dict[str, list[tuple[str, str]]] = {
             f'<p>Before signing, compare normalized bids using our '
             f'<a href="{href("how-much-does-an-adu-cost")}">ADU cost guide</a> and confirm your '
             f'<a href="{href("how-to-finance-an-adu-in-massachusetts")}">financing path</a> matches the contract structure.</p>',
+        ),
+    ],
+    "which-adu-type-is-best-for-your-massachusetts-home": [
+        (
+            "</em></p>\n\n<h2>The Four ADU Types and the One-Sentence Decision Rule</h2>",
+            f'</em></p>\n\n<p>New to ADUs? Start with our '
+            f'<a href="{href(PILLAR_SLUG)}">complete ADU guide</a>. Confirm '
+            f'<a href="{href("can-you-build-an-adu-on-your-massachusetts-property")}">lot eligibility</a> and review '
+            f'<a href="{href("how-much-does-an-adu-cost")}">ADU cost ranges</a> before you pick a type.</p>\n\n'
+            f"<h2>The Four ADU Types and the One-Sentence Decision Rule</h2>",
+        ),
+        (
+            "<strong>900 square foot or 50% of gross floor area</strong> cap",
+            f'<a href="{href("adu-permits-and-requirements-in-massachusetts")}"><strong>900 square foot or 50% of gross floor area</strong></a> cap',
+        ),
+        (
+            "expect roughly <strong>$250,000 to $400,000+</strong> all-in",
+            f'expect roughly <a href="{href("how-much-does-an-adu-cost")}"><strong>$250,000 to $400,000+</strong></a> all-in',
+        ),
+        (
+            "<strong>basement and internal ADU conversions</strong> in the complete ADU guide.",
+            f'<a href="{href(PILLAR_SLUG)}"><strong>basement and internal ADU conversions</strong></a> in the complete ADU guide.',
+        ),
+        (
+            "<strong>Title 5 counts bedrooms, not structures</strong>",
+            f'<a href="{href("can-you-build-an-adu-on-your-massachusetts-property")}"><strong>Title 5 counts bedrooms, not structures</strong></a>',
+        ),
+        (
+            "the spread in rent between a basement unit and a detached cottage in most Massachusetts markets repays the construction difference over the holding period.",
+            f'the spread in rent between a basement unit and a detached cottage in most Massachusetts markets repays the construction difference over the holding period (see our '
+            f'<a href="{href("how-much-does-an-adu-cost")}">ADU cost and ROI guide</a> for full numbers).',
+        ),
+        (
+            "Most Massachusetts municipalities enforce the <strong>Stretch Energy Code</strong>",
+            f'Most Massachusetts municipalities enforce the <a href="{href("adu-permits-and-requirements-in-massachusetts")}"><strong>Stretch Energy Code</strong></a>',
+        ),
+        (
+            "<h2>The Type Is a Strategy, Not a Floor Plan</h2>",
+            f'<h2>The Type Is a Strategy, Not a Floor Plan</h2>\n\n'
+            f'<p>Once you have a type in mind, review <a href="{href("how-to-finance-an-adu-in-massachusetts")}">financing options</a> and '
+            f'<a href="{href("how-to-choose-an-adu-builder-in-massachusetts")}">how to vet an ADU builder</a> before you commit to design.</p>',
         ),
     ],
 }

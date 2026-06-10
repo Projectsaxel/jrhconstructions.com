@@ -22,6 +22,7 @@ CATEGORIES: dict[str, dict[str, str]] = {
 
 # Display order on /blog/ (newest or most specific first).
 ADU_DISPLAY_ORDER = [
+    "which-adu-type-is-best-for-your-massachusetts-home",
     "how-to-choose-an-adu-builder-in-massachusetts",
     "can-you-build-an-adu-on-your-massachusetts-property",
     "how-to-finance-an-adu-in-massachusetts",
