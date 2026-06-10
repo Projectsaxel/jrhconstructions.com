@@ -28,6 +28,42 @@ ARTICLES: dict[str, dict[str, str]] = {
         "content_file": "adu-cost-content.html",
         "role": "satellite",
     },
+    "adu-permits-and-requirements-in-massachusetts": {
+        "title": "ADU Permits and Requirements in Massachusetts: The Complete 2026 Guide",
+        "excerpt": (
+            "Since February 2, 2025, every Massachusetts city and town must allow one ADU by right on "
+            "single-family lots. Here is what permits you need and how to get approved without a zoning battle."
+        ),
+        "content_file": "adu-permits-content.html",
+        "role": "satellite",
+    },
+    "how-to-finance-an-adu-in-massachusetts": {
+        "title": "How to Finance an ADU in Massachusetts: HELOC, Refinance, Construction Loans, and State Programs",
+        "excerpt": (
+            "An ADU in Massachusetts typically costs $150,000 to $400,000. Here are the five real financing "
+            "paths homeowners use, what each costs, and which fits your equity, income, and timeline."
+        ),
+        "content_file": "adu-financing-content.html",
+        "role": "satellite",
+    },
+    "can-you-build-an-adu-on-your-massachusetts-property": {
+        "title": "Can You Build an ADU on Your Massachusetts Property? Lot and Zoning Requirements Explained",
+        "excerpt": (
+            "Under Massachusetts by-right ADU law, most single-family lots qualify. Whether yours does depends "
+            "on five filters: zoning, dimensions, septic, overlays, and private restrictions."
+        ),
+        "content_file": "adu-lot-zoning-content.html",
+        "role": "satellite",
+    },
+    "how-to-choose-an-adu-builder-in-massachusetts": {
+        "title": "How to Choose an ADU Builder in Massachusetts: Criteria, Questions, and Red Flags",
+        "excerpt": (
+            "An ADU is a $150,000 to $400,000 project governed by a law most contractors have never worked under. "
+            "Here is how to vet licensing, compare quotes, and spot red flags before you sign."
+        ),
+        "content_file": "adu-builder-content.html",
+        "role": "satellite",
+    },
 }
 
 READ_ALSO_MARKER = '<div class="jrh-blog-read-also">'
@@ -70,6 +106,14 @@ def short_title(slug: str) -> str:
     title = ARTICLES[slug]["title"]
     if slug == "how-much-does-an-adu-cost":
         return "ADU Cost Guide"
+    if slug == "adu-permits-and-requirements-in-massachusetts":
+        return "ADU Permits Guide"
+    if slug == "how-to-finance-an-adu-in-massachusetts":
+        return "ADU Financing Guide"
+    if slug == "can-you-build-an-adu-on-your-massachusetts-property":
+        return "Lot & Zoning Guide"
+    if slug == "how-to-choose-an-adu-builder-in-massachusetts":
+        return "ADU Builder Guide"
     if slug == PILLAR_SLUG:
         return "What Is an ADU?"
     return title.split("|")[0].strip()[:60]
@@ -158,6 +202,39 @@ CONTEXTUAL_LINKS: dict[str, list[tuple[str, str]]] = {
             f'<p>Explore projected costs and rental returns in our '
             f'<a href="{href("how-much-does-an-adu-cost")}">ADU cost and ROI guide</a>.</p>',
         ),
+        (
+            "<p><strong>Topic Cluster Opportunity:</strong> ADU Permits</p>",
+            f'<p><strong>Topic Cluster Opportunity:</strong> '
+            f'<a href="{href("adu-permits-and-requirements-in-massachusetts")}">ADU Permits in Massachusetts</a></p>',
+        ),
+        (
+            "<h2>Permits and Inspections</h2>",
+            f'<h2><a href="{href("adu-permits-and-requirements-in-massachusetts")}">Permits and Inspections</a></h2>',
+        ),
+        (
+            "and financing options, see our <a href=\"../how-much-does-an-adu-cost/\">complete ADU cost guide</a>",
+            f'and <a href="{href("how-to-finance-an-adu-in-massachusetts")}">financing options</a>, see our '
+            f'<a href="{href("how-much-does-an-adu-cost")}">complete ADU cost guide</a>',
+        ),
+        (
+            "<p><strong>Topic Cluster Opportunity:</strong> ADU Zoning Requirements</p>",
+            f'<p><strong>Topic Cluster Opportunity:</strong> '
+            f'<a href="{href("can-you-build-an-adu-on-your-massachusetts-property")}">ADU Lot and Zoning Requirements</a></p>',
+        ),
+        (
+            "<h2>How to Choose an ADU Builder</h2>",
+            f'<h2><a href="{href("how-to-choose-an-adu-builder-in-massachusetts")}">How to Choose an ADU Builder</a></h2>',
+        ),
+        (
+            "Experience and transparency are critical factors when selecting an ADU builder.",
+            f'Experience and transparency are critical factors when '
+            f'<a href="{href("how-to-choose-an-adu-builder-in-massachusetts")}">selecting an ADU builder</a>.',
+        ),
+        (
+            "<p><strong>Topic Cluster Opportunity:</strong> How to Choose an ADU Builder</p>",
+            f'<p><strong>Topic Cluster Opportunity:</strong> '
+            f'<a href="{href("how-to-choose-an-adu-builder-in-massachusetts")}">How to Choose an ADU Builder</a></p>',
+        ),
     ],
     "how-much-does-an-adu-cost": [
         (
@@ -191,9 +268,170 @@ CONTEXTUAL_LINKS: dict[str, list[tuple[str, str]]] = {
         (
             "<h2>Can an ADU Pay for Itself?</h2>\n\n<p>Many homeowners view ADUs as long-term investments.",
             f"<h2>Can an ADU Pay for Itself?</h2>\n\n"
-            f'<p>Learn how ADUs create value beyond construction costs in our '
+            f'<p>Explore <a href="{href("how-to-finance-an-adu-in-massachusetts")}">ADU financing options</a> and learn how ADUs create value in our '
             f'<a href="{href(PILLAR_SLUG)}">main ADU guide</a>. '
             f"Many homeowners view ADUs as long-term investments.",
+        ),
+        (
+            "Labor costs, permitting requirements, and material prices",
+            f'Labor costs, <a href="{href("adu-permits-and-requirements-in-massachusetts")}">permitting requirements</a>, and material prices',
+        ),
+        (
+            "<p>Zoning requirements and permit rules vary by municipality.",
+            f'<p><a href="{href("adu-permits-and-requirements-in-massachusetts")}">Zoning requirements and permit rules</a> vary by municipality.',
+        ),
+        (
+            "<h3>Choosing Contractors Based Only on Price</h3>",
+            f'<h3><a href="{href("how-to-choose-an-adu-builder-in-massachusetts")}">Choosing Contractors Based Only on Price</a></h3>',
+        ),
+        (
+            "Choosing the right team can make the process smoother and more rewarding.",
+            f'<a href="{href("how-to-choose-an-adu-builder-in-massachusetts")}">Choosing the right ADU builder</a> can make the process smoother and more rewarding.',
+        ),
+    ],
+    "adu-permits-and-requirements-in-massachusetts": [
+        (
+            "</em></p>\n\n<h2>Do You Need a Permit to Build an ADU in Massachusetts? The Short Answer</h2>",
+            f'</em></p>\n\n<p>Not sure your lot qualifies? Run our '
+            f'<a href="{href("can-you-build-an-adu-on-your-massachusetts-property")}">lot and zoning eligibility checklist</a> first.</p>\n\n'
+            f'<p>New to ADUs? Start with our '
+            f'<a href="{href(PILLAR_SLUG)}">complete ADU guide</a> before diving into permits.</p>\n\n'
+            f"<h2>Do You Need a Permit to Build an ADU in Massachusetts? The Short Answer</h2>",
+        ),
+        (
+            "approval path for a compliant ADU now looks like any other residential construction project",
+            f'approval path for a compliant <a href="{href(PILLAR_SLUG)}">ADU</a> now looks like any other residential construction project',
+        ),
+        (
+            "<h2>How Much Do ADU Permits Cost in Massachusetts?</h2>\n\n<p>Permitting is a small share",
+            f'<h2>How Much Do ADU Permits Cost in Massachusetts?</h2>\n\n'
+            f'<p>For full construction budgets beyond permit fees, see our '
+            f'<a href="{href("how-much-does-an-adu-cost")}">complete ADU cost guide</a>.</p>\n\n'
+            f"<p>Permitting is a small share",
+        ),
+        (
+            "<h2>Getting Your ADU Permitted Right the First Time</h2>",
+            f'<h2>Getting Your ADU Permitted Right the First Time</h2>\n\n'
+            f'<p>Compare total project investment in our '
+            f'<a href="{href("how-much-does-an-adu-cost")}">ADU cost guide</a> and review ADU basics in our '
+            f'<a href="{href(PILLAR_SLUG)}">main ADU overview</a>.</p>',
+        ),
+        (
+            "The order is fixed: feasibility, permits, financing, construction.",
+            f'The order is fixed: feasibility, permits, '
+            f'<a href="{href("how-to-finance-an-adu-in-massachusetts")}">financing</a>, '
+            f'<a href="{href("how-to-choose-an-adu-builder-in-massachusetts")}">choosing a builder</a>, construction.',
+        ),
+    ],
+    "how-to-finance-an-adu-in-massachusetts": [
+        (
+            "</em></p>\n\n<h2>How Do Homeowners Actually Pay for an ADU? The Short Answer</h2>",
+            f'</em></p>\n\n<p>New to ADUs? Start with our '
+            f'<a href="{href(PILLAR_SLUG)}">complete ADU guide</a> and our '
+            f'<a href="{href("how-much-does-an-adu-cost")}">ADU cost guide</a> before choosing financing.</p>\n\n'
+            f"<h2>How Do Homeowners Actually Pay for an ADU? The Short Answer</h2>",
+        ),
+        (
+            "An ADU in Massachusetts typically costs $150,000 to $400,000",
+            f'An <a href="{href(PILLAR_SLUG)}">ADU</a> in Massachusetts typically costs '
+            f'<a href="{href("how-much-does-an-adu-cost")}">$150,000 to $400,000</a>',
+        ),
+        (
+            "applications are designed to come <strong>after local permits are secured</strong>",
+            f'applications are designed to come <strong>after '
+            f'<a href="{href("adu-permits-and-requirements-in-massachusetts")}">local permits are secured</a></strong>',
+        ),
+        (
+            "The pattern repeats from the permitting article:",
+            f'The pattern repeats from our '
+            f'<a href="{href("adu-permits-and-requirements-in-massachusetts")}">ADU permitting guide</a>:',
+        ),
+        (
+            "<h3>Mistake 2: Financing Before Feasibility</h3>\n\n<p>Locking a loan amount before confirming",
+            f'<h3>Mistake 2: Financing Before Feasibility</h3>\n\n'
+            f'<p>Run our <a href="{href("can-you-build-an-adu-on-your-massachusetts-property")}">lot eligibility checklist</a> first. '
+            f"Locking a loan amount before confirming",
+        ),
+        (
+            "<h2>Financing Is Now the Easy Part, If You Sequence It Right</h2>",
+            f'<h2>Financing Is Now the Easy Part, If You Sequence It Right</h2>\n\n'
+            f'<p>Confirm <a href="{href("can-you-build-an-adu-on-your-massachusetts-property")}">lot and zoning eligibility</a> first, then review the '
+            f'<a href="{href("adu-permits-and-requirements-in-massachusetts")}">Massachusetts ADU permit process</a>, '
+            f'<a href="{href("how-to-choose-an-adu-builder-in-massachusetts")}">builder selection criteria</a>, and '
+            f'<a href="{href("how-much-does-an-adu-cost")}">construction cost ranges</a> before you apply for a loan.</p>',
+        ),
+        (
+            "signed construction contract</strong> with a licensed contractor",
+            f'signed construction contract</strong> with a '
+            f'<a href="{href("how-to-choose-an-adu-builder-in-massachusetts")}">licensed ADU contractor</a>',
+        ),
+    ],
+    "can-you-build-an-adu-on-your-massachusetts-property": [
+        (
+            "</em></p>\n\n<h2>The Short Answer: Most Single-Family Lots Now Qualify</h2>",
+            f'</em></p>\n\n<p>New to ADUs? Start with our '
+            f'<a href="{href(PILLAR_SLUG)}">complete ADU guide</a>. Once your lot checks out, see our '
+            f'<a href="{href("adu-permits-and-requirements-in-massachusetts")}">Massachusetts ADU permit guide</a>.</p>\n\n'
+            f"<h2>The Short Answer: Most Single-Family Lots Now Qualify</h2>",
+        ),
+        (
+            "regulated under <strong>760 CMR 71.00</strong>",
+            f'regulated under <strong>760 CMR 71.00</strong> (detailed in our '
+            f'<a href="{href("adu-permits-and-requirements-in-massachusetts")}">ADU permits guide</a>)',
+        ),
+        (
+            "The by-right zoning law explicitly leaves Title 5 untouched.",
+            f'The by-right zoning law explicitly leaves <a href="{href("adu-permits-and-requirements-in-massachusetts")}">Title 5</a> untouched.',
+        ),
+        (
+            "The smaller number is your <strong>by-right maximum ADU size</strong>.",
+            f'The smaller number is your <strong>by-right maximum ADU size</strong> (see the '
+            f'<a href="{href("adu-permits-and-requirements-in-massachusetts")}">full size rule</a>).',
+        ),
+        (
+            "<h2>From \"Can I?\" to \"How Should I?\": Your Next Step</h2>",
+            f'<h2>From "Can I?" to "How Should I?": Your Next Step</h2>\n\n'
+            f'<p>After eligibility, review <a href="{href("how-much-does-an-adu-cost")}">ADU construction costs</a>, '
+            f'<a href="{href("how-to-choose-an-adu-builder-in-massachusetts")}">how to choose an ADU builder</a>, and '
+            f'<a href="{href("how-to-finance-an-adu-in-massachusetts")}">financing options</a> for your project.</p>',
+        ),
+    ],
+    "how-to-choose-an-adu-builder-in-massachusetts": [
+        (
+            "</em></p>\n\n<h2>What Separates a Good ADU Builder: The Short Answer</h2>",
+            f'</em></p>\n\n<p>New to ADUs? Start with our '
+            f'<a href="{href(PILLAR_SLUG)}">complete ADU guide</a>. Confirm '
+            f'<a href="{href("can-you-build-an-adu-on-your-massachusetts-property")}">lot eligibility</a> and review '
+            f'<a href="{href("adu-permits-and-requirements-in-massachusetts")}">Massachusetts ADU permits</a> before you interview builders.</p>\n\n'
+            f"<h2>What Separates a Good ADU Builder: The Short Answer</h2>",
+        ),
+        (
+            "An ADU is a $150,000 to $400,000 project governed",
+            f'An ADU is a <a href="{href("how-much-does-an-adu-cost")}">$150,000 to $400,000 project</a> governed',
+        ),
+        (
+            "<strong>by-right provisions of the Affordable Homes Act</strong>",
+            f'<a href="{href("adu-permits-and-requirements-in-massachusetts")}"><strong>by-right provisions of the Affordable Homes Act</strong></a>',
+        ),
+        (
+            "(feasibility, Title 5, zoning, permits)",
+            f'(<a href="{href("can-you-build-an-adu-on-your-massachusetts-property")}">feasibility</a>, '
+            f'<a href="{href("adu-permits-and-requirements-in-massachusetts")}">Title 5, zoning, permits</a>)',
+        ),
+        (
+            "and an appraisal and financing ecosystem that is still maturing.",
+            f'and an appraisal and <a href="{href("how-to-finance-an-adu-in-massachusetts")}">financing ecosystem</a> that is still maturing.',
+        ),
+        (
+            "someone still has to do the local permitting.",
+            f'someone still has to do the <a href="{href("adu-permits-and-requirements-in-massachusetts")}">local permitting</a>.',
+        ),
+        (
+            "<h2>The Builder Decision Is the Project Decision</h2>",
+            f'<h2>The Builder Decision Is the Project Decision</h2>\n\n'
+            f'<p>Before signing, compare normalized bids using our '
+            f'<a href="{href("how-much-does-an-adu-cost")}">ADU cost guide</a> and confirm your '
+            f'<a href="{href("how-to-finance-an-adu-in-massachusetts")}">financing path</a> matches the contract structure.</p>',
         ),
     ],
 }

@@ -44,6 +44,42 @@ LIVE_PATCHES: dict[str, list[tuple[str, str]]] = {
             'Professional guidance from <a href="../../contact-us/">JRH Constructions</a> can help transform an idea into a valuable long-term investment.',
         ),
     ],
+    "adu-permits-and-requirements-in-massachusetts": [
+        (
+            "work with a team that has already carried ADU projects through Massachusetts building departments",
+            'work with a team that has already carried <a href="../../services/accessory-dwelling-unit-adu-service/">ADU projects</a> through Massachusetts building departments',
+        ),
+        (
+            '<a href="../../services/accessory-dwelling-unit-adu-service/">Explore JRH Constructions ADU construction services</a>',
+            '<a href="../../services/accessory-dwelling-unit-adu-service/">Explore our ADU construction services</a>',
+        ),
+    ],
+    "how-to-finance-an-adu-in-massachusetts": [
+        (
+            "if you want the feasibility, permitting, and lender package handled as one workflow",
+            'if you want the <a href="../../services/accessory-dwelling-unit-adu-service/">feasibility, permitting, and construction</a> package handled as one workflow',
+        ),
+        (
+            '<a href="../../services/accessory-dwelling-unit-adu-service/">explore JRH Constructions ADU construction services</a>',
+            '<a href="../../services/accessory-dwelling-unit-adu-service/">explore our ADU construction services</a>',
+        ),
+    ],
+    "can-you-build-an-adu-on-your-massachusetts-property": [
+        (
+            "That study is where experienced ADU builders earn their keep before construction even starts",
+            'That study is where <a href="../how-to-choose-an-adu-builder-in-massachusetts/">experienced ADU builders</a> earn their keep before construction even starts',
+        ),
+        (
+            '<a href="../../services/accessory-dwelling-unit-adu-service/">explore our ADU construction services</a>',
+            '<a href="../../services/accessory-dwelling-unit-adu-service/">explore our ADU construction services</a>',
+        ),
+    ],
+    "how-to-choose-an-adu-builder-in-massachusetts": [
+        (
+            "with a feasibility study first and contract transparency as policy",
+            'with a <a href="../../services/accessory-dwelling-unit-adu-service/">feasibility study first</a> and contract transparency as policy',
+        ),
+    ],
 }
 
 

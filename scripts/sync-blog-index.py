@@ -77,6 +77,13 @@ def main() -> None:
     sync_blog_index()
     redirect_adu_index()
     append_filter_css()
+
+    import subprocess
+
+    subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "generate-sitemap-blog.py")],
+        check=True,
+    )
     print(f"Updated {BLOG / 'index.html'}")
     print("Redirected /adu/ to /blog/?category=adu")
 
