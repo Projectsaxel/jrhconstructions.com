@@ -86,6 +86,30 @@ LIVE_PATCHES: dict[str, list[tuple[str, str]]] = {
             'That walkthrough is the entire purpose of a <a href="../../services/accessory-dwelling-unit-adu-service/">feasibility assessment</a>',
         ),
     ],
+    "basement-adu-conversion-in-massachusetts": [
+        (
+            "Those calls are exactly what a professional feasibility walkthrough resolves",
+            'Those calls are exactly what a professional <a href="../../services/accessory-dwelling-unit-adu-service/">basement feasibility walkthrough</a> resolves',
+        ),
+    ],
+    "adu-floor-plans-for-massachusetts": [
+        (
+            "that is a feasibility conversation before it is a design contract",
+            'that is a <a href="../../services/accessory-dwelling-unit-adu-service/">feasibility and design consultation</a> before it is a design contract',
+        ),
+    ],
+    "how-long-does-it-take-to-build-an-adu-in-massachusetts": [
+        (
+            "That backward plan is a standard part of a professional feasibility assessment",
+            'That backward plan is a standard part of a professional <a href="../../services/accessory-dwelling-unit-adu-service/">feasibility assessment with a timeline plan</a>',
+        ),
+    ],
+    "adu-roi-in-massachusetts": [
+        (
+            "the feasibility walkthrough that anchors them to your actual lot, are the first step that costs nothing.",
+            'the <a href="../../services/accessory-dwelling-unit-adu-service/">feasibility walkthrough with a rental projection</a> that anchors them to your actual lot, are the first step that costs nothing.',
+        ),
+    ],
 }
 
 

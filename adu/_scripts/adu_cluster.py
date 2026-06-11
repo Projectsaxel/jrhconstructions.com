@@ -73,6 +73,42 @@ ARTICLES: dict[str, dict[str, str]] = {
         "content_file": "adu-types-content.html",
         "role": "satellite",
     },
+    "basement-adu-conversion-in-massachusetts": {
+        "title": "Basement ADU Conversion in Massachusetts: Costs, Building Codes, and Feasibility",
+        "excerpt": (
+            "Massachusetts basements under colonials and capes may qualify as by-right ADUs since 2025. "
+            "Learn the four code gatekeepers, real conversion costs, and a 30-minute feasibility checklist."
+        ),
+        "content_file": "adu-basement-content.html",
+        "role": "satellite",
+    },
+    "adu-floor-plans-for-massachusetts": {
+        "title": "ADU Floor Plans for Massachusetts: Layouts That Maximize Space, Rent, and Livability",
+        "excerpt": (
+            "Design an ADU floor plan inside Massachusetts size caps, septic bedroom limits, and winter climate rules. "
+            "Compare layouts by size band, ADU type, and occupant with space tricks that work."
+        ),
+        "content_file": "adu-floor-plans-content.html",
+        "role": "satellite",
+    },
+    "how-long-does-it-take-to-build-an-adu-in-massachusetts": {
+        "title": "How Long Does It Take to Build an ADU in Massachusetts? The Real Timeline From Sketch to Move-In",
+        "excerpt": (
+            "A realistic Massachusetts ADU takes 6 to 12 months from first conversation to Certificate of Occupancy. "
+            "See the timeline by phase and type, where projects lose months, and how to compress the schedule."
+        ),
+        "content_file": "adu-timeline-content.html",
+        "role": "satellite",
+    },
+    "adu-roi-in-massachusetts": {
+        "title": "ADU ROI in Massachusetts: Rental Income, Property Value, and Payback Explained With Real Numbers",
+        "excerpt": (
+            "A Massachusetts ADU returns money through rent, property value, and flexibility. "
+            "See 2026 numbers by region and unit type, operating costs, and the configurations that pay back fastest."
+        ),
+        "content_file": "adu-roi-content.html",
+        "role": "satellite",
+    },
 }
 
 READ_ALSO_MARKER = '<div class="jrh-blog-read-also">'
@@ -125,6 +161,14 @@ def short_title(slug: str) -> str:
         return "ADU Builder Guide"
     if slug == "which-adu-type-is-best-for-your-massachusetts-home":
         return "ADU Types Guide"
+    if slug == "basement-adu-conversion-in-massachusetts":
+        return "Basement ADU Guide"
+    if slug == "adu-floor-plans-for-massachusetts":
+        return "ADU Floor Plans Guide"
+    if slug == "how-long-does-it-take-to-build-an-adu-in-massachusetts":
+        return "ADU Timeline Guide"
+    if slug == "adu-roi-in-massachusetts":
+        return "ADU ROI Guide"
     if slug == PILLAR_SLUG:
         return "What Is an ADU?"
     return title.split("|")[0].strip()[:60]
@@ -208,10 +252,12 @@ CONTEXTUAL_LINKS: dict[str, list[tuple[str, str]]] = {
             f"size, and construction phase. Costs typically range",
         ),
         (
-            "<h2>Return on Investment and Rental Income</h2>",
-            f'<h2>Return on Investment and Rental Income</h2>\n\n'
+            "<h2>Return on Investment and Rental Income</h2>\n\n"
+            "<p>Explore projected costs and rental returns in our "
+            "<a href=\"../how-much-does-an-adu-cost/\">ADU cost and ROI guide</a>.</p>",
+            f'<h2><a href="{href("adu-roi-in-massachusetts")}">Return on Investment and Rental Income</a></h2>\n\n'
             f'<p>Explore projected costs and rental returns in our '
-            f'<a href="{href("how-much-does-an-adu-cost")}">ADU cost and ROI guide</a>.</p>',
+            f'<a href="{href("adu-roi-in-massachusetts")}">ADU ROI guide</a>.</p>',
         ),
         (
             "<p><strong>Topic Cluster Opportunity:</strong> ADU Permits</p>",
@@ -259,11 +305,53 @@ CONTEXTUAL_LINKS: dict[str, list[tuple[str, str]]] = {
         (
             "<p><strong>Topic Cluster Opportunity:</strong> Basement ADU</p>",
             f'<p><strong>Topic Cluster Opportunity:</strong> '
-            f'<a href="{href("which-adu-type-is-best-for-your-massachusetts-home")}">Basement ADU</a></p>',
+            f'<a href="{href("basement-adu-conversion-in-massachusetts")}">Basement ADU</a></p>',
+        ),
+        (
+            "<h3>Basement ADU</h3>",
+            f'<h3><a href="{href("basement-adu-conversion-in-massachusetts")}">Basement ADU</a></h3>',
         ),
         (
             "<h3>Detached ADU</h3>",
             f'<h3><a href="{href("which-adu-type-is-best-for-your-massachusetts-home")}">Detached ADU</a></h3>',
+        ),
+        (
+            "<p><strong>Topic Cluster Opportunity:</strong> ADU Floor Plans</p>",
+            f'<p><strong>Topic Cluster Opportunity:</strong> '
+            f'<a href="{href("adu-floor-plans-for-massachusetts")}">ADU Floor Plans</a></p>',
+        ),
+        (
+            "<p><strong>Topic Cluster Opportunity:</strong> 1 Bedroom ADU Floor Plans</p>",
+            f'<p><strong>Topic Cluster Opportunity:</strong> '
+            f'<a href="{href("adu-floor-plans-for-massachusetts")}">1 Bedroom ADU Floor Plans</a></p>',
+        ),
+        (
+            "<p><strong>Topic Cluster Opportunity:</strong> 2 Bedroom ADU Floor Plans</p>",
+            f'<p><strong>Topic Cluster Opportunity:</strong> '
+            f'<a href="{href("adu-floor-plans-for-massachusetts")}">2 Bedroom ADU Floor Plans</a></p>',
+        ),
+        (
+            "<h2>ADU Floor Plans and Design Ideas</h2>",
+            f'<h2><a href="{href("adu-floor-plans-for-massachusetts")}">ADU Floor Plans and Design Ideas</a></h2>',
+        ),
+        (
+            "<p><strong>Topic Cluster Opportunity:</strong> How Long Does It Take to Build an ADU?</p>",
+            f'<p><strong>Topic Cluster Opportunity:</strong> '
+            f'<a href="{href("how-long-does-it-take-to-build-an-adu-in-massachusetts")}">How Long Does It Take to Build an ADU?</a></p>',
+        ),
+        (
+            "<h2>How Long Does It Take to Build an ADU?</h2>",
+            f'<h2><a href="{href("how-long-does-it-take-to-build-an-adu-in-massachusetts")}">How Long Does It Take to Build an ADU?</a></h2>',
+        ),
+        (
+            "<p><strong>Topic Cluster Opportunity:</strong> ADU Construction Process</p>",
+            f'<p><strong>Topic Cluster Opportunity:</strong> '
+            f'<a href="{href("how-long-does-it-take-to-build-an-adu-in-massachusetts")}">ADU Construction Process</a></p>',
+        ),
+        (
+            "<p><strong>Topic Cluster Opportunity:</strong> ADU ROI</p>",
+            f'<p><strong>Topic Cluster Opportunity:</strong> '
+            f'<a href="{href("adu-roi-in-massachusetts")}">ADU ROI</a></p>',
         ),
     ],
     "how-much-does-an-adu-cost": [
@@ -309,6 +397,12 @@ CONTEXTUAL_LINKS: dict[str, list[tuple[str, str]]] = {
         (
             "<p>Zoning requirements and permit rules vary by municipality.",
             f'<p><a href="{href("adu-permits-and-requirements-in-massachusetts")}">Zoning requirements and permit rules</a> vary by municipality.',
+        ),
+        (
+            "<h3>How Long Does It Take to Build an ADU?</h3>\n<p>Most projects require between six and twelve months.",
+            f'<h3>How Long Does It Take to Build an ADU?</h3>\n<p>See our '
+            f'<a href="{href("how-long-does-it-take-to-build-an-adu-in-massachusetts")}">complete ADU timeline guide</a> for phase-by-phase schedules. '
+            f"Most projects require between six and twelve months.",
         ),
         (
             "<h3>Choosing Contractors Based Only on Price</h3>",
@@ -484,7 +578,7 @@ CONTEXTUAL_LINKS: dict[str, list[tuple[str, str]]] = {
         ),
         (
             "<strong>basement and internal ADU conversions</strong> in the complete ADU guide.",
-            f'<a href="{href(PILLAR_SLUG)}"><strong>basement and internal ADU conversions</strong></a> in the complete ADU guide.',
+            f'<a href="{href("basement-adu-conversion-in-massachusetts")}"><strong>basement and internal ADU conversions</strong></a> in our dedicated basement ADU guide.',
         ),
         (
             "<strong>Title 5 counts bedrooms, not structures</strong>",
@@ -493,7 +587,11 @@ CONTEXTUAL_LINKS: dict[str, list[tuple[str, str]]] = {
         (
             "the spread in rent between a basement unit and a detached cottage in most Massachusetts markets repays the construction difference over the holding period.",
             f'the spread in rent between a basement unit and a detached cottage in most Massachusetts markets repays the construction difference over the holding period (see our '
-            f'<a href="{href("how-much-does-an-adu-cost")}">ADU cost and ROI guide</a> for full numbers).',
+            f'<a href="{href("adu-roi-in-massachusetts")}">ADU ROI guide</a> for full numbers).',
+        ),
+        (
+            'see our <a href="../how-much-does-an-adu-cost/">ADU cost and ROI guide</a> for full numbers',
+            f'see our <a href="{href("adu-roi-in-massachusetts")}">ADU ROI guide</a> for full numbers',
         ),
         (
             "Most Massachusetts municipalities enforce the <strong>Stretch Energy Code</strong>",
@@ -504,6 +602,201 @@ CONTEXTUAL_LINKS: dict[str, list[tuple[str, str]]] = {
             f'<h2>The Type Is a Strategy, Not a Floor Plan</h2>\n\n'
             f'<p>Once you have a type in mind, review <a href="{href("how-to-finance-an-adu-in-massachusetts")}">financing options</a> and '
             f'<a href="{href("how-to-choose-an-adu-builder-in-massachusetts")}">how to vet an ADU builder</a> before you commit to design.</p>',
+        ),
+    ],
+    "basement-adu-conversion-in-massachusetts": [
+        (
+            "</em></p>\n\n<h2>Can You Legally Convert Your Basement Into an Apartment in Massachusetts? The Short Answer</h2>",
+            f'</em></p>\n\n<p>New to ADUs? Start with our '
+            f'<a href="{href(PILLAR_SLUG)}">complete ADU guide</a>. Compare '
+            f'<a href="{href("which-adu-type-is-best-for-your-massachusetts-home")}">ADU types</a> and confirm '
+            f'<a href="{href("can-you-build-an-adu-on-your-massachusetts-property")}">lot eligibility</a> before you measure your basement.</p>\n\n'
+            f"<h2>Can You Legally Convert Your Basement Into an Apartment in Massachusetts? The Short Answer</h2>",
+        ),
+        (
+            "under <strong>760 CMR 71.00</strong>: no special permit",
+            f'under <a href="{href("adu-permits-and-requirements-in-massachusetts")}"><strong>760 CMR 71.00</strong></a>: no special permit',
+        ),
+        (
+            "at roughly <strong>$80,000 to $180,000</strong>, a basement conversion",
+            f'at roughly <a href="{href("how-much-does-an-adu-cost")}"><strong>$80,000 to $180,000</strong></a>, a basement conversion',
+        ),
+        (
+            "the same capacity check from the feasibility article governs here",
+            f'the same capacity check from our '
+            f'<a href="{href("can-you-build-an-adu-on-your-massachusetts-property")}">lot and feasibility guide</a> governs here',
+        ),
+        (
+            "compare against garage or detached options",
+            f'compare against <a href="{href("which-adu-type-is-best-for-your-massachusetts-home")}">garage or detached ADU options</a>',
+        ),
+        (
+            "a <strong>building permit application for the change of use</strong>",
+            f'a <a href="{href("adu-permits-and-requirements-in-massachusetts")}"><strong>building permit application for the change of use</strong></a>',
+        ),
+        (
+            "The state cap of <strong>900 square feet or 50% of the home's gross floor area</strong>",
+            f'The state cap of <a href="{href("adu-permits-and-requirements-in-massachusetts")}"><strong>900 square feet or 50% of the home\'s gross floor area</strong></a>',
+        ),
+        (
+            "<strong>Title 5</strong> rates systems by bedrooms",
+            f'<a href="{href("can-you-build-an-adu-on-your-massachusetts-property")}"><strong>Title 5</strong></a> rates systems by bedrooms',
+        ),
+        (
+            "<h2>The Cheapest ADU in Massachusetts Is Probably Under Your Feet</h2>",
+            f'<h2>The Cheapest ADU in Massachusetts Is Probably Under Your Feet</h2>\n\n'
+            f'<p>Once your basement passes the checklist, review '
+            f'<a href="{href("how-to-finance-an-adu-in-massachusetts")}">financing options</a> and '
+            f'<a href="{href("how-to-choose-an-adu-builder-in-massachusetts")}">how to choose an ADU builder</a> before you commit to design.</p>',
+        ),
+    ],
+    "adu-floor-plans-for-massachusetts": [
+        (
+            "</em></p>\n\n<h2>The Right Floor Plan Is a Math Problem Before It Is a Design Problem</h2>",
+            f'</em></p>\n\n<p>New to ADUs? Start with our '
+            f'<a href="{href(PILLAR_SLUG)}">complete ADU guide</a>. Confirm '
+            f'<a href="{href("can-you-build-an-adu-on-your-massachusetts-property")}">lot and septic eligibility</a> and pick your '
+            f'<a href="{href("which-adu-type-is-best-for-your-massachusetts-home")}">ADU type</a> before you choose a layout.</p>\n\n'
+            f"<h2>The Right Floor Plan Is a Math Problem Before It Is a Design Problem</h2>",
+        ),
+        (
+            "<strong>900 square feet or 50% of your home's gross floor area, whichever is smaller</strong>",
+            f'<a href="{href("adu-permits-and-requirements-in-massachusetts")}"><strong>900 square feet or 50% of your home\'s gross floor area, whichever is smaller</strong></a>',
+        ),
+        (
+            "on septic properties, <strong>Title 5</strong> counts bedrooms",
+            f'on septic properties, <a href="{href("can-you-build-an-adu-on-your-massachusetts-property")}"><strong>Title 5</strong></a> counts bedrooms',
+        ),
+        (
+            "Works hardest as a basement or garage conversion plan",
+            f'Works hardest as a <a href="{href("basement-adu-conversion-in-massachusetts")}">basement</a> or '
+            f'<a href="{href("which-adu-type-is-best-for-your-massachusetts-home")}">garage conversion</a> plan',
+        ),
+        (
+            "<h3>Basement: The Plan Follows the Light and the Pipes</h3>",
+            f'<h3><a href="{href("basement-adu-conversion-in-massachusetts")}">Basement</a>: The Plan Follows the Light and the Pipes</h3>',
+        ),
+        (
+            "Under the <strong>Stretch Energy Code</strong>",
+            f'Under the <a href="{href("adu-permits-and-requirements-in-massachusetts")}"><strong>Stretch Energy Code</strong></a>',
+        ),
+        (
+            "the integrated model made in the builder guide of this series",
+            f'the integrated model made in our '
+            f'<a href="{href("how-to-choose-an-adu-builder-in-massachusetts")}">ADU builder guide</a>',
+        ),
+        (
+            "Yes, directly: <strong>Title 5</strong> rates systems by bedrooms",
+            f'Yes, directly: <a href="{href("can-you-build-an-adu-on-your-massachusetts-property")}"><strong>Title 5</strong></a> rates systems by bedrooms',
+        ),
+        (
+            "<h2>The Plan Is Where the Rules Become a Home</h2>",
+            f'<h2>The Plan Is Where the Rules Become a Home</h2>\n\n'
+            f'<p>Before you commit to drawings, compare '
+            f'<a href="{href("how-much-does-an-adu-cost")}">ADU construction costs</a> and '
+            f'<a href="{href("how-to-finance-an-adu-in-massachusetts")}">financing options</a> for your layout.</p>',
+        ),
+    ],
+    "how-long-does-it-take-to-build-an-adu-in-massachusetts": [
+        (
+            "</em></p>\n\n<h2>The Short Answer: 6 to 12 Months, and the Permit Is Not the Slow Part</h2>",
+            f'</em></p>\n\n<p>New to ADUs? Start with our '
+            f'<a href="{href(PILLAR_SLUG)}">complete ADU guide</a>. Confirm '
+            f'<a href="{href("can-you-build-an-adu-on-your-massachusetts-property")}">lot eligibility</a>, pick your '
+            f'<a href="{href("which-adu-type-is-best-for-your-massachusetts-home")}">ADU type</a>, and review '
+            f'<a href="{href("how-much-does-an-adu-cost")}">construction costs</a> before you set a schedule.</p>\n\n'
+            f"<h2>The Short Answer: 6 to 12 Months, and the Permit Is Not the Slow Part</h2>",
+        ),
+        (
+            "since the <strong>Affordable Homes Act</strong> made the first ADU a <strong>by-right use</strong>",
+            f'since the <a href="{href("adu-permits-and-requirements-in-massachusetts")}"><strong>Affordable Homes Act</strong></a> made the first ADU a <strong>by-right use</strong>',
+        ),
+        (
+            "the homework covered in this series' eligibility guide",
+            f'the homework covered in our '
+            f'<a href="{href("can-you-build-an-adu-on-your-massachusetts-property")}">lot and eligibility guide</a>',
+        ),
+        (
+            "<strong>Title 5 capacity</strong> pull",
+            f'<a href="{href("can-you-build-an-adu-on-your-massachusetts-property")}"><strong>Title 5 capacity</strong></a> pull',
+        ),
+        (
+            "A conversion adapting a stock or state-provided plan",
+            f'A conversion adapting a <a href="{href("adu-floor-plans-for-massachusetts")}">stock or state-provided plan</a>',
+        ),
+        (
+            "<td><strong>Basement conversion</strong></td>",
+            f'<td><strong><a href="{href("basement-adu-conversion-in-massachusetts")}">Basement conversion</a></strong></td>',
+        ),
+        (
+            "<td><strong>Garage conversion</strong></td>",
+            f'<td><strong><a href="{href("which-adu-type-is-best-for-your-massachusetts-home")}">Garage conversion</a></strong></td>',
+        ),
+        (
+            "skipping the wet-season moisture observation on a basement",
+            f'skipping the wet-season moisture observation on a <a href="{href("basement-adu-conversion-in-massachusetts")}">basement</a>',
+        ),
+        (
+            "The fix costs nothing: a builder who has filed in that town before",
+            f'The fix costs nothing: an <a href="{href("how-to-choose-an-adu-builder-in-massachusetts")}">ADU builder</a> who has filed in that town before',
+        ),
+        (
+            "feasibility finds a <strong>Title 5 system at capacity</strong>",
+            f'feasibility finds a <a href="{href("can-you-build-an-adu-on-your-massachusetts-property")}"><strong>Title 5 system at capacity</strong></a>',
+        ),
+        (
+            "<h2>The Calendar Is a Design Decision</h2>",
+            f'<h2>The Calendar Is a Design Decision</h2>\n\n'
+            f'<p>Pair your schedule with our '
+            f'<a href="{href("adu-permits-and-requirements-in-massachusetts")}">ADU permitting guide</a> and '
+            f'<a href="{href("how-to-finance-an-adu-in-massachusetts")}">financing timeline</a> before you commit to a start date.</p>',
+        ),
+    ],
+    "adu-roi-in-massachusetts": [
+        (
+            "</em></p>\n\n<h2>Is an ADU Worth It in Massachusetts? The Short Answer With Numbers</h2>",
+            f'</em></p>\n\n<p>New to ADUs? Start with our '
+            f'<a href="{href(PILLAR_SLUG)}">complete ADU guide</a>. Review '
+            f'<a href="{href("how-much-does-an-adu-cost")}">ADU construction costs</a>, '
+            f'<a href="{href("which-adu-type-is-best-for-your-massachusetts-home")}">ADU types</a>, and '
+            f'<a href="{href("can-you-build-an-adu-on-your-massachusetts-property")}">lot eligibility</a> before you model returns.</p>\n\n'
+            f"<h2>Is an ADU Worth It in Massachusetts? The Short Answer With Numbers</h2>",
+        ),
+        (
+            "From the floor plan guide in this series",
+            f'From our <a href="{href("adu-floor-plans-for-massachusetts")}">ADU floor plan guide</a>',
+        ),
+        (
+            "($130,000 MassHousing ADULP at 5.25%",
+            f'($130,000 <a href="{href("how-to-finance-an-adu-in-massachusetts")}">MassHousing ADULP</a> at 5.25%',
+        ),
+        (
+            "the unit with a <strong>Certificate of Occupancy</strong>",
+            f'the unit with a <a href="{href("adu-permits-and-requirements-in-massachusetts")}"><strong>Certificate of Occupancy</strong></a>',
+        ),
+        (
+            "this series' builder guide",
+            f'our <a href="{href("how-to-choose-an-adu-builder-in-massachusetts")}">ADU builder guide</a>',
+        ),
+        (
+            "studio-plus plan where Title 5 caps bedrooms",
+            f'<a href="{href("adu-floor-plans-for-massachusetts")}">studio-plus plan</a> where '
+            f'<a href="{href("can-you-build-an-adu-on-your-massachusetts-property")}">Title 5</a> caps bedrooms',
+        ),
+        (
+            "delivered into the <strong>May-to-September leasing window</strong>",
+            f'delivered into the <a href="{href("how-long-does-it-take-to-build-an-adu-in-massachusetts")}"><strong>May-to-September leasing window</strong></a>',
+        ),
+        (
+            "conversion (garage or basement) where the shell allows it",
+            f'<a href="{href("which-adu-type-is-best-for-your-massachusetts-home")}">conversion (garage or basement)</a> where the shell allows it',
+        ),
+        (
+            "<h2>The Return Was Never Just the Rent</h2>",
+            f'<h2>The Return Was Never Just the Rent</h2>\n\n'
+            f'<p>Model your project against our '
+            f'<a href="{href("how-to-finance-an-adu-in-massachusetts")}">ADU financing guide</a> and '
+            f'<a href="{href("adu-permits-and-requirements-in-massachusetts")}">permit requirements</a> before you commit capital.</p>',
         ),
     ],
 }
