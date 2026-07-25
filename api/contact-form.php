@@ -40,6 +40,13 @@ const RECIPIENTS = [
     'Info@axelseo.com',
 ];
 
+// Default delivery method: FormSubmit (formsubmit.co). It relays mail through
+// FormSubmit's own authenticated servers, so it is NOT affected by the domain's
+// SPF -all rule that was silently dropping mail. No Microsoft password and no
+// DNS change required for the form to work. Can be overridden in config.local.php
+// (e.g. to switch to authenticated Microsoft 365 SMTP later).
+const FORMSUBMIT_DEFAULT_ENABLED = true;
+
 /* -------------------------------------------------------------------------
  * Optional SMTP configuration.
  * Copy config.example.php to config.local.php and fill in the credentials.
@@ -144,11 +151,18 @@ $captured = capture_lead([
 $emailSent = false;
 $emailError = '';
 
+$fs = $config['formsubmit'] ?? [];
+$fsEnabled = $fs['enabled'] ?? FORMSUBMIT_DEFAULT_ENABLED;
 $smtp = $config['smtp'] ?? [];
-if (!empty($smtp['enabled']) && !empty($smtp['host']) && !empty($smtp['username']) && !empty($smtp['password'])) {
+
+if ($fsEnabled) {
+    // Preferred: relay through FormSubmit (authenticated third-party sender).
+    [$emailSent, $emailError] = send_via_formsubmit($fs, $name, $email, $subject, $body, $pageUrl);
+} elseif (!empty($smtp['enabled']) && !empty($smtp['host']) && !empty($smtp['username']) && !empty($smtp['password'])) {
+    // Alternative: authenticated Microsoft 365 SMTP.
     [$emailSent, $emailError] = send_via_smtp($smtp, $name, $email, $subject, $body);
 } else {
-    // Last resort only. Likely to be dropped by SPF -all until SMTP is set up.
+    // Last resort only. Likely to be dropped by SPF -all.
     $headers = [
         'From: JRH Constructions <noreply@jrhconstructions.com>',
         'Reply-To: ' . $name . ' <' . $email . '>',
@@ -221,6 +235,90 @@ function capture_lead(array $lead): bool
     @file_put_contents($dir . '/leads-' . $month . '.txt', $txt, FILE_APPEND | LOCK_EX);
 
     return $jsonlOk !== false;
+}
+
+/**
+ * Relay the lead through FormSubmit (formsubmit.co). FormSubmit requires an
+ * Origin/Referer header from a real site, so we set them explicitly. The first
+ * ever submission triggers a one-time "Activate Form" email to the primary
+ * recipient; after it is clicked once, every submission is emailed.
+ *
+ * @return array{0:bool,1:string} [sent, statusOrError]
+ */
+function send_via_formsubmit(array $fs, string $name, string $replyTo, string $subject, string $body, string $pageUrl): array
+{
+    $primary = $fs['endpoint'] ?? RECIPIENTS[0];
+    $ccValue = $fs['cc'] ?? array_slice(RECIPIENTS, 1);
+    $cc = is_array($ccValue) ? implode(',', $ccValue) : (string) $ccValue;
+
+    $url = 'https://formsubmit.co/ajax/' . rawurlencode($primary);
+
+    $payload = [
+        'name' => $name,
+        'email' => $replyTo,
+        'message' => $body,
+        '_subject' => $subject,
+        '_replyto' => $replyTo,
+        '_template' => 'table',
+        '_captcha' => 'false',
+    ];
+    if ($cc !== '') {
+        $payload['_cc'] = $cc;
+    }
+    $json = json_encode($payload, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+
+    $referer = $pageUrl !== '' ? $pageUrl : 'https://jrhconstructions.com/contact-us/';
+    $headers = [
+        'Content-Type: application/json',
+        'Accept: application/json',
+        'Origin: https://jrhconstructions.com',
+        'Referer: ' . $referer,
+    ];
+
+    $respBody = false;
+    $transportError = '';
+    if (function_exists('curl_init')) {
+        $ch = curl_init($url);
+        curl_setopt_array($ch, [
+            CURLOPT_POST => true,
+            CURLOPT_POSTFIELDS => $json,
+            CURLOPT_HTTPHEADER => $headers,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_TIMEOUT => 15,
+            CURLOPT_CONNECTTIMEOUT => 8,
+        ]);
+        $respBody = curl_exec($ch);
+        if ($respBody === false) {
+            $transportError = 'curl: ' . curl_error($ch);
+        }
+        curl_close($ch);
+    } else {
+        $ctx = stream_context_create(['http' => [
+            'method' => 'POST',
+            'header' => implode("\r\n", $headers),
+            'content' => $json,
+            'timeout' => 15,
+            'ignore_errors' => true,
+        ]]);
+        $respBody = @file_get_contents($url, false, $ctx);
+        if ($respBody === false) {
+            $transportError = 'stream POST failed';
+        }
+    }
+
+    if ($respBody !== false && $respBody !== '') {
+        $data = json_decode((string) $respBody, true);
+        $success = is_array($data) ? ($data['success'] ?? null) : null;
+        if ($success === true || $success === 'true') {
+            return [true, ''];
+        }
+        $msg = is_array($data) && isset($data['message'])
+            ? (string) $data['message']
+            : ('unexpected FormSubmit response: ' . substr((string) $respBody, 0, 200));
+        return [false, 'FormSubmit: ' . $msg];
+    }
+
+    return [false, $transportError !== '' ? $transportError : 'no response from FormSubmit'];
 }
 
 /**
