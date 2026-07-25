@@ -1,0 +1,4 @@
+# Vercel does not execute PHP, so it would serve this handler as a static
+# file and expose its source (including the recipient addresses). Keep it in
+# the repo for a PHP-capable host, but out of the Vercel deployment.
+api/
