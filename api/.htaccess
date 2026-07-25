@@ -1,0 +1,6 @@
+# Protect sensitive files inside /api from direct web access.
+Options -Indexes
+
+<FilesMatch "^config\.(local|example)\.php$">
+  Require all denied
+</FilesMatch>
