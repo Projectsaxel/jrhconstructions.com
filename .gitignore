@@ -1,1 +1,6 @@
 .DS_Store
+# Secrets and captured leads must never be committed
+api/config.local.php
+api/leads/*.jsonl
+api/leads/*.txt
+api/leads/*.log
