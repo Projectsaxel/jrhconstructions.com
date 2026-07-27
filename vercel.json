@@ -76,8 +76,8 @@
       "permanent": true
     },
     {
-      "source": "/accessory-dwelling-unit-adu-in-sommerville",
-      "destination": "/services/accessory-dwelling-unit-adu-in-sommerville",
+      "source": "/accessory-dwelling-unit-adu-in-somerville",
+      "destination": "/services/accessory-dwelling-unit-adu-in-somerville",
       "permanent": true
     },
     {
@@ -111,8 +111,8 @@
       "permanent": true
     },
     {
-      "source": "/bathroom-remodeling-in-sommerville",
-      "destination": "/services/bathroom-remodeling-in-sommerville",
+      "source": "/bathroom-remodeling-in-somerville",
+      "destination": "/services/bathroom-remodeling-in-somerville",
       "permanent": true
     },
     {
@@ -151,8 +151,8 @@
       "permanent": true
     },
     {
-      "source": "/full-remodeling-in-sommerville",
-      "destination": "/services/full-remodeling-in-sommerville",
+      "source": "/full-remodeling-in-somerville",
+      "destination": "/services/full-remodeling-in-somerville",
       "permanent": true
     },
     {
@@ -181,13 +181,13 @@
       "permanent": true
     },
     {
-      "source": "/home-additions-in-sommerville",
-      "destination": "/services/home-additions-in-sommerville",
+      "source": "/home-additions-in-somerville",
+      "destination": "/services/home-additions-in-somerville",
       "permanent": true
     },
     {
-      "source": "/home-additions-quincy",
-      "destination": "/services/home-additions-quincy",
+      "source": "/home-additions-in-quincy",
+      "destination": "/services/home-additions-in-quincy",
       "permanent": true
     },
     {
@@ -196,8 +196,8 @@
       "permanent": true
     },
     {
-      "source": "/kitchen-remodelin-in-boston",
-      "destination": "/services/kitchen-remodelin-in-boston",
+      "source": "/kitchen-remodeling-in-boston",
+      "destination": "/services/kitchen-remodeling-in-boston",
       "permanent": true
     },
     {
@@ -226,8 +226,8 @@
       "permanent": true
     },
     {
-      "source": "/kitchen-remodeling-in-sommerville",
-      "destination": "/services/kitchen-remodeling-in-sommerville",
+      "source": "/kitchen-remodeling-in-somerville",
+      "destination": "/services/kitchen-remodeling-in-somerville",
       "permanent": true
     },
     {
@@ -266,8 +266,8 @@
       "permanent": true
     },
     {
-      "source": "/painting-in-sommerville",
-      "destination": "/services/painting-in-sommerville",
+      "source": "/painting-in-somerville",
+      "destination": "/services/painting-in-somerville",
       "permanent": true
     },
     {

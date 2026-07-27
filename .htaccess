@@ -95,3 +95,36 @@ Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains
 Header always set Content-Security-Policy "upgrade-insecure-requests; frame-ancestors 'self'"
 </IfModule>
 # END SECURITY HEADERS
+
+# BEGIN WORDPRESS LOCKDOWN (Axel SEO 2026-07, reversivel)
+# O site e 100% estatico e nao usa o runtime do WordPress. Este bloco nega
+# acesso web a todos os pontos de entrada do WordPress, preservando as imagens
+# em wp-content/uploads. Para reverter, basta remover este bloco.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^wp-admin(/|$) - [F,L]
+RewriteRule ^wp-includes(/|$) - [F,L]
+RewriteRule ^wp-content/(plugins|themes|mu-plugins)(/|$) - [F,L]
+RewriteRule ^wp-json(/|$) - [F,L]
+RewriteRule ^xmlrpc\.php$ - [F,L]
+RewriteRule ^wp-(login|register|signup|cron|mail|links-opml|trackback|config|activate|blog-header|load|settings|comments-post)\.php$ - [F,L]
+RewriteRule ^(readme|license)\.(html|txt)$ - [F,L]
+RewriteRule ^(default|monarx-analyzer)\.php$ - [F,L]
+</IfModule>
+# END WORDPRESS LOCKDOWN
+
+# BEGIN URL CANONICALIZATION (Axel SEO 2026-07, Bloco 2)
+# 301 permanente dos slugs com typo para os slugs corretos (dirs renomeados).
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^services/kitchen-remodelin-in-boston(/.*)?$ /services/kitchen-remodeling-in-boston$1 [R=301,L]
+RewriteRule ^services/home-additions-quincy(/.*)?$ /services/home-additions-in-quincy$1 [R=301,L]
+RewriteRule ^services/accessory-dwelling-unit-adu-in-sommerville(/.*)?$ /services/accessory-dwelling-unit-adu-in-somerville$1 [R=301,L]
+RewriteRule ^services/bathroom-remodeling-in-sommerville(/.*)?$ /services/bathroom-remodeling-in-somerville$1 [R=301,L]
+RewriteRule ^services/full-remodeling-in-sommerville(/.*)?$ /services/full-remodeling-in-somerville$1 [R=301,L]
+RewriteRule ^services/home-additions-in-sommerville(/.*)?$ /services/home-additions-in-somerville$1 [R=301,L]
+RewriteRule ^services/kitchen-remodeling-in-sommerville(/.*)?$ /services/kitchen-remodeling-in-somerville$1 [R=301,L]
+RewriteRule ^services/painting-in-sommerville(/.*)?$ /services/painting-in-somerville$1 [R=301,L]
+RewriteRule ^sommerville-jrh-constuctions(/.*)?$ /somerville-jrh-constructions$1 [R=301,L]
+</IfModule>
+# END URL CANONICALIZATION
