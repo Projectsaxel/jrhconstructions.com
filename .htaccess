@@ -104,7 +104,7 @@ Header always set Content-Security-Policy "upgrade-insecure-requests; frame-ance
 RewriteEngine On
 RewriteRule ^wp-admin(/|$) - [F,L]
 RewriteRule ^wp-includes(/|$) - [F,L]
-RewriteRule ^wp-content/(plugins|themes|mu-plugins)(/|$) - [F,L]
+RewriteRule ^wp-content/(plugins|themes|mu-plugins)/.+\.(php[0-9]?|phtml|phar)$ - [F,L]
 RewriteRule ^wp-json(/|$) - [F,L]
 RewriteRule ^xmlrpc\.php$ - [F,L]
 RewriteRule ^wp-(login|register|signup|cron|mail|links-opml|trackback|config|activate|blog-header|load|settings|comments-post)\.php$ - [F,L]
